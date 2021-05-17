@@ -67,3 +67,27 @@ main {
 body{
     background-color: #d3d3ef;
 }
+
+#chart{
+    position: absolute;
+    width: 658px;
+    height: 411px;
+    top: 455px
+}
+
+#test{
+    position: absolute;
+    top: 309px;
+    left: 55px;
+}
+
+#attimpt{
+    position: absolute;
+    top: 345px
+}
+
+
+footer{
+    position: absolute;
+    top: 700px;
+}
