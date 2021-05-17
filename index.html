@@ -14,13 +14,33 @@
     <main>
         <h2 id="tit">select your image please</h2>
         <div id='result'>result</div>
+
         <div id='image'>
             <img id="left-img" src="" alt="">
             <img id="center-img" src="" alt="">
             <img id="right-img" src="" alt="">
         </div>
+<div id="attimpt">
+    <label for="attimpt" >number of attimpt </label>
+    <input type="number" name="attimpt"  required placeholder="5 to 25" >
+    <!-- <button onclick="testAtt()" id="test" >
+        number of attimpt
+      </button> -->
+</div>
+        <div id="chart">
+            <canvas id="myChart" width="100px" height="100px"></canvas>
+        </div>
+
+
+        <button onclick="test()" id="test" >
+            Show result!
+          </button>
     </main>
-    <footer></footer>
-<script src="app.js"></script>
+
+    <footer>
+        &copy;2021qusai busmall
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
