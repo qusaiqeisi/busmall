@@ -3,7 +3,35 @@
 
 // global array for the objects.
 let busMall = [];
-console.log(busMall);
+
+/////////////////////////////////local storge////////////////
+
+function settingItem (){
+    let itemData = JSON.stringify(busMall);
+// console.log('data',itemData);
+localStorage.setItem('item',itemData);
+}
+
+
+/////////////////////string to opject/////////////////
+
+function newObject(){
+    ////string in call
+
+    let strObject = localStorage.getItem('item');
+    console.log(strObject);
+
+    let norObject = JSON.parse(strObject);
+    console.log(norObject);
+
+    if ( norObject !== null){
+        item = norObject
+        
+    }
+
+}
+
+// console.log(busMall);
 // global elemant by id 
 let lfetImg = document.getElementById('left-img');
 let centImg = document.getElementById('center-img');
@@ -42,6 +70,7 @@ function MallIdea(name , source){
     busMall.push(this);
     //  push the name to iteams name array
     itemName.push(this.name);
+    
 
 }
 
@@ -86,15 +115,15 @@ function renderThreeImage (){
 
 // for (let i = 0; i < 3; i++) {
     
-    if (leftImageIndex === rightImageIndex || rightImageIndex==firstShow[0] || rightImageIndex==firstShow[1] || rightImageIndex==firstShow[2]){
+    if (leftImageIndex === rightImageIndex ){
         
         rightImageIndex = generateRandomIndex();
 
-    } else if (leftImageIndex === centerImageIndex || centerImageIndex==firstShow[0] || centerImageIndex==firstShow[1] || centerImageIndex==firstShow[2]){
+    } else if (leftImageIndex === centerImageIndex ){
         
         centerImageIndex = generateRandomIndex();
 
-    } else if (rightImageIndex === centerImageIndex || centerImageIndex==firstShow[0] || centerImageIndex==firstShow[1] || centerImageIndex==firstShow[2]){
+    } else if (rightImageIndex === centerImageIndex ){
         
         centerImageIndex = generateRandomIndex();
 
@@ -135,7 +164,11 @@ image.addEventListener('click', Clicker);
 
 
 // global counter and attempt
-let maxAttempts = 25;
+let maxAttempts = 0;
+function testAtt(){
+    maxAttempts=document.getElementById('attimpt').value;
+console.log(maxAttempts);
+}
 let userAttemptsCounter = 0
 
 // function testAtt(){
@@ -171,29 +204,38 @@ function Clicker(event){
         // centImg.removeEventListener('click', Clicker);
         // rightImg.removeEventListener('click', Clicker);
         image.removeEventListener('click', Clicker);
-        // getting the element
-        // let list = document.getElementById('result');
-        // let liElement;
-        // for (let i = 0; i < busMall.length; i++) {
-        //     liElement = document.createElement('li');
-        //     list.appendChild(liElement);
-        //     liElement.textContent = `${busMall[i].name} has ${busMall[i].votes}  votes`;
-
+        
         // }
-
-
+        
+        
         for (let i = 0; i < busMall.length; i++){
-
+            
             itemVotes.push(busMall[i].votes);
             itemShown.push(busMall[i].shown);
         }
         
     }
-
+    //localstorge function call
+    settingItem ();
 }
+
+
+
+function resUlt(){
+// getting the element
+ let list = document.getElementById('result');
+ let liElement;
+ for (let i = 0; i < busMall.length; i++) {
+     liElement = document.createElement('li');
+    list.appendChild(liElement);
+     liElement.textContent = `${busMall[i].name} has ${busMall[i].votes}  votes`;
+}
+}
+
 
 function test(){
     chartView();
+    resUlt();
 }
 
 
@@ -204,6 +246,9 @@ function test(){
 
 function chartView() {
     let ctx = document.getElementById('myChart').getContext('2d');
+    ctx.canvas.height= '300';
+    ctx.canvas.width= '300';
+
 let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -234,3 +279,8 @@ let myChart = new Chart(ctx, {
 });
  }
 // console.log('show',itemShown);
+
+
+
+newObject();
+

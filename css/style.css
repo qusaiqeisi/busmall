@@ -21,10 +21,9 @@ main {
 
 #result{
     position: absolute;
-    top: 247px;
-    font-size: 35px;
-    left: 65px;
-    background-color: powderblue;
+    top: 488px;
+    font-size: 21px;
+    left: 65px
 }
 
 #image {
@@ -70,24 +69,40 @@ body{
 
 #chart{
     position: absolute;
-    width: 658px;
-    height: 411px;
-    top: 455px
+    width: 796px;
+    height: 400px;
+    top: 563px;
+    left: 420px
 }
 
 #test{
     position: absolute;
-    top: 309px;
+    top: 442px;
     left: 55px;
-}
+} 
 
 #attimpt{
     position: absolute;
-    top: 345px
+    top: 345px;
+    left: 55px;
 }
 
 
 footer{
+    position: relative;
+    top: 1379px;
+    background-color: cornsilk;
+    text-align: center;
+}
+
+#teast {
     position: absolute;
-    top: 700px;
+    top: 368px;
+    left: 55px;
+}
+
+#labeal{
+    position: absolute;
+    top: 319px;
+    left: 59px;
 }
